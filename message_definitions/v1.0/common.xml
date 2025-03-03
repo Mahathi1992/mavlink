@@ -5649,6 +5649,20 @@
       <field type="uint8_t" name="new_orientation" enum="MAV_SENSOR_ORIENTATION">orientation after calibration.</field>
       <field type="float" name="scale_factor">field radius correction factor</field>
     </message>
+    <message id="196" name="ZAS_WARHEAD_COMMAND"> 
+      <description>Send Warhead ON/OFF/Fire command from the handcontroller to the autopilot.</description> 
+      <field type="uint8_t" name="target_system">System ID</field> 
+      <field type="uint8_t" name="target_component">Component ID</field> 
+      <field type="uint8_t" name="warhead_state">Warhead state (0xA5: off, 0x3F: ON)</field> 
+      <field type="uint8_t" name="fire_command">Fire command (0x7C: No fire, 0xE2: Fire)</field> 
+    </message> 
+    <message id="197" name="ZAS_ARM_ACK"> 
+      <description>Send arm acknowledgment including power, arm, and disarm states from the autopilot to the handcontroller.</description> 
+      <field type="uint8_t" name="target_system">System ID</field> 
+      <field type="uint8_t" name="power_status">Power status (0xD4: OFF, 0x9A: ON)</field> 
+      <field type="uint8_t" name="arm_status">ARM status (0x1B: ARM command not sent, 0xF3: ARM ACK OK, 0x6E: ARM ACK NOK, 0x82: No reply)</field> 
+      <field type="uint8_t" name="disarm_status">Disarm status (0x47: DISARM command not sent, 0xC1: DISARM ACK OK, 0x8D: DISARM ACK NOK, 0x2A: No reply)</field> 
+    </message>
     <!-- 225 EFI_STATUS imported from ardupilotmega.xml -->
     <message id="225" name="EFI_STATUS">
       <description>EFI status output</description>
